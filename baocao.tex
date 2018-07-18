@@ -152,178 +152,48 @@ Ta có bảng sau đây cho n quân hậu
 
 \subsubsection{Giải thuật đệ quy và quay lui tìm kiếm tất cả các lời giải}.
 \\
-Trong giải thuật này, mỗi lời giải được ký hiệu bằng một mảng solution[1$..$n], trong đó solution[i]= j là cột mà quân hậu ở hàng thứ i đứng. Theo tính chất số học của các ô trên bàn cờ n x n, các ô trên các đường chéo cộng chứa ô (i, j) đều có tổng chỉ số hàng với chỉ số cột bằng i+j. Tổng này nhận các giá trị từ 2 đến 2n nên ta đánh số các đường chéo này từ 1 đến 2n-1. Như vậy các ô trên đường chéo cộng thứ nhất có tổng chỉ số dòng và cột là 2, các ô trên đường chéo thứ k có tổng ấy là k+1. Ta dùng một mảng Boolean Okplus[1..2n-1] để ký hiệu trạng thái đã có quân hậu nào trên đường chéo cộng thứ k chưa, nghĩa là Okplus[k]=True nếu đã có một quân hậu đứng chiếm giữ đường chéo cộng thứ k. Tương tự, các ô trên một đường chéo trừ có hiệu như nhau. Hiệu này nhận giá trị từ 1-n đến n- 1. Đánh số từ 1 đến 2n-1 từ đường chéo có hiệu chỉ số dòng trừ chỉ số cột là 1-n đến đường chéo có hiệu ấy bằng n-1. Khi đó đường chéo trừ thứ k có hiệu chỉ số dòng trừ chỉ số cột là k-n. Ta cũng dùng mảng okminus[1..2n-1] để chỉ trạng thái của các đường chéo này.
+Trong giải thuật này, mỗi lời giải được ký hiệu bằng một mảng solution[1$..$n], trong đó solution[i]= j là cột mà quân hậu ở hàng thứ i đứng. Theo tính chất số học của các ô trên bàn cờ n x n, các ô trên các đường chéo cộng chứa ô (i, j) đều có tổng chỉ số hàng với chỉ số cột bằng i+j. Tổng này nhận các giá trị từ 2 đến 2n nên ta đánh số các đường chéo này từ 1 đến 2n-1. \\
+
+Như vậy các ô trên đường chéo cộng thứ nhất có tổng chỉ số dòng và cột là 2, các ô trên đường chéo thứ k có tổng ấy là k+1. Ta dùng một mảng Boolean Ok\_plus[1..2n-1] để ký hiệu trạng thái đã có quân hậu nào trên đường chéo cộng thứ k chưa, nghĩa là Ok\_plus[k]=True nếu đã có một quân hậu đứng chiếm giữ đường chéo cộng thứ k.\\
+
+Tương tự, các ô trên một đường chéo trừ có hiệu như nhau. Hiệu này nhận giá trị từ 1-n đến n- 1. Đánh số từ 1 đến 2n-1 từ đường chéo có hiệu chỉ số dòng trừ chỉ số cột là 1-n đến đường chéo có hiệu ấy bằng n-1. Khi đó đường chéo trừ thứ k có hiệu chỉ số dòng trừ chỉ số cột là k-n. Ta cũng dùng mảng ok\_minus[1..2n-1] để chỉ trạng thái của các đường chéo này.\\
 
 Giải thuật này cố gắng đặt quân hậu ở dòng thứ i vào cột nào đó, bắt đầu từ dòng thứ nhất (luôn có thể đặt được). Nếu ở dòng thứ i ta đặt quân hậu vào cột thứ j, thì nó khống chế tất cả các ô trong cột thứ j, đường chéo cộng thứ i+j-1, đường chéo trừ thứ i-j+n. Nếu có thể đặt được quân hậu ở dòng i và i = n ta có một lời giải. Nếu đặt được và i < n ta tiếp tục cố gắng đặt quân hậu tiếp theo vào dòng thứ i+1. Nếu không đặt được, ta quay lại nhấc quân hậu ở dòng thứ i-1 và tìm phương án tiếp theo của dòng thứ i-1.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{\em Vào cuối của các thông tin được trích dẫn:}
-
-fluoride nước cũng như các sản phẩm có chứa chất florua khác nhau như kem đánh răng cung cấp các ion florua cần thiết cho remineralization 1.
-
-{\em Trong các thông tin được trích dẫn:}
-
-Rakita 1 nói rằng nước có chất fluoride cũng như các sản phẩm có chứa chất florua khác nhau như kem đánh răng cung cấp các ion florua cần thiết cho remineralization.
-
-
-\paragraph{Nghiêng số}.
-
-{\em Vào cuối của các thông tin được trích dẫn:}
-
-fluoride nước cũng như các sản phẩm có chứa chất florua khác nhau như kem đánh răng cung cấp các ion florua cần thiết cho remineralization ( {\itshape 1} ).
-
-{\em Trong các thông tin trích dẫn:}
-
-Rakita ( {\itshape 1} ) tuyên bố rằng nước có chất fluoride cũng như các sản phẩm có chứa chất florua khác nhau như kem đánh răng cung cấp các ion florua cần thiết cho remineralization.
-
-
-\paragraph{Tên tác giả và năm xuất bản}.
-
-{\em Vào cuối của các thông tin được trích dẫn:}
-
-fluoride nước cũng như các sản phẩm có chứa chất florua khác nhau như kem đánh răng cung cấp các ion florua cần thiết cho remineralization (Rakita, 2004).
-
-{\em Trong các thông tin trích dẫn:}
-
-Rakita nước có chất fluoride cũng như các sản phẩm có chứa chất florua khác nhau như kem đánh răng cung cấp các ion florua cần thiết cho remineralization (2004).
-
-\paragraph{Làm thế nào để định dạng danh sách tham khảo}.
-
-{\bfseries Sách}
-
-{\em Độc thân tác giả}
-
-Chang, R. Tổng Hóa: Các khái niệm cần thiết, lần thứ 3, McGraw-Hill: Boston, năm 2003.
-
-{\em Thay đổi nội dung sách}
-
-Gbalint-Kurti, GG Wavepacket Lý thuyết của hình ảnh phân li và tán xạ phản ứng. 
-{\em Sách trong Series}
-
-Omega-3 axit béo: Hóa học, dinh dưỡng, Y tế và ảnh hưởng; Shahidi, F., Finley, JW, Eds; ACS Hội thảo Series 788; Hội Hóa học Mỹ: Washington, DC năm 2001.
-
-{\em Điều từ một cuốn sách tham khảo}
-
-Luyện kim bột. Kirk-Othmer Bách khoa toàn thư của Công nghệ hóa học, lần thứ 3; Wiley: New York, năm 1982, Vol. 19, Trang 28-62.
-
-{\bfseries Các bài viết}
-
-{\em Bài báo trong một tạp chí khoa học}
-
-Evans, DA; Fitch, DM, Smith, TE; Cee, VJ Áp dụng các phản ứng nghịch đảo phức tạp để tổng hợp Phorboxazole B. J. Am. Chem. Sóc 2000, 122 , 10033-10046.
-
-{\em Bài báo trong một tạp chí phổ biến / không khoa học}
-
-Manning, R. Siêu hữu cơ, 2004, pp 176-181.
-
-{\em Điều từ một tạp chí trực tuyến}
-
-Peacock-Lopez, E. Chính xác giải pháp tiềm năng Quantum. 2007, 11 , 383-393 http://chemeducator.org/bibs/0011006/11060380lb.htm 
-
-{\bfseries Luận án, Bằng sáng chế, Hội nghị, Báo cáo kỹ thuật}
-
-{\em Đề tài}
-
-Thoman, JW, Jr nghiên cứu của vô hiệu hóa một phân tử hoạt động bề mặt -Tiến sĩ Luận án, Viện Công nghệ Massachusetts, Cambridge, MA, 1987.
-hoăc
-
-Gehring, A. Tiến sĩ. Luận văn, Đại học Harvard năm 1998.
-
-{\em Bằng sáng chế}
-
- Phát hiện, cách ly, Thanh lọc độc tố Clostridiu, ngày 24 tháng 3 1992.
-
-{\em Hội nghị / Hội nghị (toàn văn)}
-
-Winstein, Trong Giáo dục Đại học Hóa chất, Kỷ yếu của Hội nghị Quốc tế về Giáo dục Đại học Hóa chất, Frascati (Rome), Italy, 16-19 tháng Mười, năm 1969; Chisman, DG. Ed; Butterworths: London, 1970.
-
-{\em Hội nghị / cuộc họp }
-
-Kaplan, LJ; Selder, A. sách tóm tắt, 213th ACS Hội nghị Quốc gia, San Francisco, CA, 13-ngày 17 tháng tư, năm 1997, Hội Hóa học Mỹ: Washington, DC, năm 1997, CHED-824.
-
-{\em Báo cáo kỹ thuật }
-
-Crampton, SB; McAllaster, hiệu ứng chuyển động trung bình trong maser nguyên tử Hydrogen đông lạnh, WMC-AFOSR-002; NTIS: Springfield, VA, 1983.
-
-{\bfseries Web / Mạng}
-
-Lưu ý: trình duyệt web khác nhau phá vỡ các văn bản ở những nơi khác nhau của một URL. URL nên bắt đầu trên cùng một dòng như phần còn lại của các thông tin trích dẫn, với một đoạn chèn vào sau khi một dấu gạch chéo, nếu cần thiết.
-
-{\em Trang web}
-
-National Library of Medicine. Y tế và môi trường Độc Chất: Dịch vụ Thông tin chuyên ngành. http://sis.nlm.nih.gov/enviro.html (truy cập ngày 23 tháng 8 2004.
-
-{\em Điều từ một tạp chí trực tuyến}
-
-Peacock-Lopez, E. Chính xác Giải pháp tiềm năng Quantum. Chem. Ed. 2007, 11 , 383-393 http://chemeducator.org/bibs/0011006/11060380lb.htm (truy cập ngày 23 tháng 8 năm 2007).
-
-{\em Điều từ cơ sở dữ liệu văn bản đầy đủ}
-
-Begley, S. Khi não của bạn ngừng hoạt động Newsweek [Online] ngày 02 Tháng Bảy 2007, 62 p. Mở rộng. http:/galegroup.com (truy cập ngày 23 tháng 8 năm 2007).
-
-
-
 \subsection{Min-Conflict}
 
-{\em AMA Manual of Style}: Hướng dẫn dành cho Tác giả và biên tập viên là một hướng dẫn phong cách bởi các biên tập viên của JAMA (Tạp chí của Hiệp hội Y khoa Mỹ) và tạp chí - gần đây nhất xuất bản Oxford University Press [ 1 ] [ 2 ] . Quy định cụ thể bằng văn bản và trích dẫn phong cách cho sử dụng trong các ấn phẩm học thuật trong y học quốc tế, bao gồm cả JAMA và tạp chí - . Nó được xuất bản lần đầu vào năm 1962, và phiên bản hiện tại của nó, 10, ra đến năm 2007 [ 1 ] . Hướng dẫn AMA của phong cách bao gồm một bề rộng chủ đề cho tác giả và biên tập viên trong y học và các lĩnh vực liên quan đến sức khỏe và bao gồm 25 chương:{\em Phần 1. Chuẩn bị Điều Xuất bản - 1 loại điều, 2 Chuẩn bị bản thảo, 3 Tham khảo 4 Visual trình bày dữ liệu, 5 Xem xét đạo đức và pháp lý, 6 biên tập đánh giá và chế biến; Mục 2. (US) - 7. Ngữ pháp, 8. Dấu chấm câu, 9. Số nhiều, 10. Hoa, 11. Chính xác và ưu tiên sử dụng, 12. Không phải tiếng Anh từ, cụm từ, và nhãn hiệu Accent, 13. Chỉ số y tế; Phần 3. Thuật ngữ - 14. Chữ viết tắt, 15. Danh mục này, 16. Eponyms, 17. Hy Lạp Thư Mục 4. Đo lường và định lượng 18. Các đơn vị đo lường, 19. Số và Tỷ lệ phần trăm, 20.Thiết kế nghiên cứu và thống kê, 21. Thành phần toán học; Mục 5. Thông tin kỹ thuật - 22. Kiểu chữ, 23. Chỉnh sửa bản thảo và Soát lỗi, 24.Glossary Số Publishing, 25. Tài nguyên.}
-\subsubsection{Min-Conflict Hill Climbing algorithm}.
+Mặc dù Trí tuệ nhân tạo và tối ưu hóa rời rạc đã biết đến và lý luận được về lập trình ràng buộc (CSP - Constraint Satisfaction Problems), nhưng mãi tới năm 1990, các bài toán CSP mới được giải bằng các thuật toán. Ban đầu, Mark Johnson thuộc viện Space Telescope Science đã tìm kiếm một phương pháp để lên lịch các quan sát thiên văn trên kính viễn vọng không gian Hubble. Với người đồng nghiệp Hans-Martin Adorf của Cơ quan Điều phối Châu Âu về kính viễn vọng Không gian, ông đã tạo ra một mạng lưới thần kinh có khả năng giải quyết vấn đề bài toán N-con hậu (Cho 1024 con hậu). Steven Minton và Andy Philips đã phân tích thuật toán mạn nowrron và tách nó thành hai giai đoạn (1) một phép gán ban đầu sử dụng thuật toán tham lam (2) Các pha giảm thiểu xung đột (Sau này được gọi là "Xung đột tối thiểu").  Kết quả nghiên cứu này được công bố trong bài báo AAAI-90, Philip Larird đã phân tích luận lý toán học của thuật toán.
 
-Tham khảo thông tin sử dụng được thực hiện trong danh sách tham khảo. Điều này bao gồm nhưng không phải là giới hạn các bài báo được công bố hoặc được chấp nhận cho công bố trong in ấn hàng loạt nghiên cứu hoặc lưu thông hoặc tạp chí điện tử, tạp chí, báo, cuốn sách đã được công bố, chấp nhận cho xuất bản, giấy tờ trình bày tại các cuộc họp chuyên nghiệp, tóm tắt, đề tài, CD-ROM, bộ phim, băng hình, và audiofiles, chèn gói hoặc tài liệu hướng dẫn của nhà sản xuất, chuyên khảo; chính thức báo cáo, cơ sở dữ liệu và các trang web, trường hợp pháp luật; bằng sáng chế, và phiên bản mới. Danh sách tham khảo Tài liệu tham khảo cần được liệt kê theo số thứ tự ở phần cuối của bản thảo (trừ trường hợp quy định tại mục 3.3 và 3.5 trong {\itshape Hướng dẫn US AMA}). Hai tài liệu tham khảo không nên kết hợp theo một số tham chiếu duy nhất.
+\subsubsection{Min-Conflict Hill Climbing algorithm}.\\
+{\bfseries Mã giả của thuật toán}\\
+procedure GenerateLocalMoves(s, TotalMoves)\\
+begin\\
+     return M\\
+end\\
 
-\subsubsection{Min-Conflict Random Walk algorithm}.
-
-
-Trích dẫn trong ngoặc trong các văn bản của tài liệu tham khảo đáp ứng các tiêu chuẩn để đưa vào danh sách tài liệu tham khảo nên được giới hạn trường hợp trong danh sách tham khảo sẽ không được sử dụng, tin bài cáo phó. Lưu ý rằng trong các văn bản :
-
-Tài liệu tham khảo trong văn bản Tác giả 
-
-• Có thể không được đặt tên 
-
-• Tiêu đề này có thể không được 
-
-• Tên của tạp chí là viết tắt chỉ khi kèm theo trong ngoặc đơn
-
- • số trang hòa nhập được 
- 
-Một số nguồn lực, chẳng hạn như URL Web, có thể được liệt kê trong văn bản khi nó là trang Web chính nó được gọi chứ không phải là nội dung trên trang web đó.
-
-{\bfseries Ví dụ}
-
-Wiese gần đây đã báo cáo rằng chất chiết xuất từ quả của cây xương rồng lê gai có vừa phải có hiệu lực vào việc giảm các triệu chứng nôn nao rượu ({\itshape Arch Intern} Med. 2004; 164 [12] :1334-1340). 
-
-Các tác dụng của chiết xuất từ quả của cây xương rồng lê gai vào việc giảm Các triệu chứng của say rượu cồn đã được báo cáo trong một vấn đề gần đây của tài liệu lưu trữ {\itshape Nội khoa} (2004, 164 [12] :1334-1340). 
-
-{\itshape Archives of Internal Medicine} bài viết (2004, 164 [12] :1334-1340) về tác động của một trích xuất trái cây của cây xương rồng lê gai làm giảm các triệu chứng của rượu nôn nao nhận được công khai rộng rãi (ví dụ, USA Today ngày 29 tháng 6, 2004:7 D)
-
-
-
+\subsubsection{Min-Conflict Random Walk algorithm}.\\
+{\bfseries Mã giả của thuật toán}\\
+begin\\
+   generate randomly an initial solution s\\
+   n\_iter := 0; n\_moves := 0\\
+   while f(s) > max\_cost and n\_moves < max\_moves do\\
+      if p > random number between 0 and 1 then\\
+        choose randomly a variable V in conflict\\
+        choose randomly a value v’ for V\\
+      else\\
+         choose randomly a variable V in conflict\\
+         choose a value v’ for V that minimizes the number of conflicts for V.\\
+         (the current value is chosen only if all the other values increase the number of \\
+           violated constraints.)\\
+       if v’ is different from the current value of V then\\
+          assign v’ to V\\
+          n\_moves := n\_moves + 1\\
+       n\_iter := n\_iter + 1\\
+    endwhile\\
+    output(s)\\
+end\\
 %%%%%%%%%%%%%%
 \section{Kết Luận }\label{result}
 Tài liệu được thực hiện  với sự giúp đỡ tận tình của giáo viên hướng dẫn, Thầy TS. Dương Tuấn Anh\\
