@@ -168,9 +168,22 @@ Mặc dù Trí tuệ nhân tạo và tối ưu hóa rời rạc đã biết đ�
 
 \subsubsection{Min-Conflict Hill Climbing algorithm}.\\
 {\bfseries Mã giả của thuật toán}\\
-procedure GenerateLocalMoves(s, TotalMoves)\\
-begin\\
-     return M\\
+procedure GenerateLocalMoves(s, TotalMoves) \\
+begin \\
+    \hspace{1cm}  M' $\gets$  ø, BestCost $\gets$ f(s) \\
+    \hspace{1cm} choose randomly a variable v in conflict \\ 
+    \hspace{1cm} choose a value d for v (d $\neq$ dcurr) that minimizes the number of conflicts for v. \\
+   \hspace{1cm}  m $\gets$ {v, d} \\ 
+    \hspace{1cm} if f(s $\oplus$ m) $\leq$ BestCost then  // accepts improving moves and sideways moves \\
+          \hspace{2cm} begin \\
+            \hspace{2cm}  if f(s $\oplus$ m) < BestCost then \\
+            \hspace{2cm}  begin \\
+                  \hspace{3cm}BestCost $\gets$ f(s $\oplus$ m); M’ $\gets$ ø\\
+            \hspace{2cm}  end \\
+              M $\gets$  M’ ø {m} \\
+           \hspace{2cm} end \\
+     \hspace{1cm} if M' = ø then TotalMoves $\gets$ MaxMoves\\
+    \hspace{1cm} return M’\\
 end\\
 
 \subsubsection{Min-Conflict Random Walk algorithm}.\\
